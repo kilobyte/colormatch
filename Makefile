@@ -1,5 +1,5 @@
-PROGS = ct nearest256
-all: ct nearest256
+PROGS = ct nearest256 xterm256
+all: $(PROGS)
 #export CFLAGS = -Wall -Wextra -Werror -Og \
 #	-fdiagnostics-color=always -fsanitize=undefined -ggdb
 export CFLAGS = -Wall -Wextra -Werror -Ofast -march=native -mtune=native \
@@ -13,5 +13,8 @@ ct: ct.o color_distance.o
 
 nearest256: nearest256.o color_distance.o 256.o
 	$(CC) $(CFLAGS) -o $@ $^ -lm
+
+xterm256: xterm256.o 256.o
+	$(CC) $(CFLAGS) -o $@ $^
 
 *.o: Makefile
