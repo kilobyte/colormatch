@@ -29,7 +29,7 @@ int main(int argc, char **argv)
         ss += ((long long)d) * d / 16777216;
     }
 
-    printf("%-15s maxd=%g (#%06X vs %d:#%06X) Σd²=%g\n", argv[1],
+    printf("%-15s maxd=%#-7.6g (#%06X vs %3d:#%06X) Σd²=%#-8.6g\n", argv[1],
         maxe/16777216.0,
         worst, nt[worst], col256_to_rgb(nt[worst]),
         ss/16777216.0);
