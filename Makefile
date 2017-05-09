@@ -1,7 +1,9 @@
 PROGS = ct nearest256
 all: ct nearest256
-export CFLAGS = -Wall -Wextra -Werror -Og \
-	-fdiagnostics-color=always -fsanitize=undefined -ggdb
+#export CFLAGS = -Wall -Wextra -Werror -Og \
+#	-fdiagnostics-color=always -fsanitize=undefined -ggdb
+export CFLAGS = -Wall -Wextra -Werror -Ofast -march=native -mtune=native \
+	-flto -fdiagnostics-color=always
 
 clean:
 	rm -f $(PROGS) *.o
