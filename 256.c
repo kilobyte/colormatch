@@ -1,5 +1,10 @@
+#include <stdlib.h>
+
 int col256_to_rgb(int i)
 {
+    if (i<0 || i > 255)
+        abort();
+
     // Standard colours.
     if (i < 16)
     {
