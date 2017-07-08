@@ -2,5 +2,6 @@ ct
 nearest256
 xterm256
 rate
+16x16
 *.o
 *~

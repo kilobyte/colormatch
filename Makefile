@@ -1,4 +1,4 @@
-PROGS = ct nearest256 xterm256 rate
+PROGS = ct nearest256 xterm256 rate 16x16
 all: $(PROGS)
 #export CFLAGS = -Wall -Wextra -Werror -Og \
 #	-fdiagnostics-color=always -fsanitize=undefined -ggdb
@@ -18,6 +18,9 @@ xterm256: xterm256.o 256.o
 	$(CC) $(CFLAGS) -o $@ $^
 
 rate: rate.o color_distance.o 256.o
+	$(CC) $(CFLAGS) -o $@ $^ -lm
+
+16x16: 16x16.o color_distance.o 256.o
 	$(CC) $(CFLAGS) -o $@ $^ -lm
 
 *.o: Makefile
