@@ -8,6 +8,13 @@ static void pc(int c)
     printf("%d;%d;%d", (v>>16)&255, (v>>8)&255, v&255);
 }
 
+static int neg16(int c)
+{
+    if (c <= 8)
+        return 97;
+    return 30;
+}
+
 int main()
 {
     printf("     ");
@@ -15,7 +22,7 @@ int main()
     {
         printf("\e[48;2;");
         pc(x);
-        printf(";3%d;4m%3d \e[0m", (x&8)?0:7, x);
+        printf(";%d;4m%3d \e[0m", neg16(x), x);
     }
     printf("\n");
 
@@ -23,7 +30,7 @@ int main()
     {
         printf("\e[48;2;");
         pc(y);
-        printf(";3%dm%3d \e[0m ", (y&8)?0:7, y);
+        printf(";%dm%3d \e[0m ", neg16(y), y);
 
         for (int x=0; x<16; ++x)
         {
