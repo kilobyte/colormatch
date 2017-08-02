@@ -8,6 +8,8 @@ int col256_to_rgb(int i)
     // Standard colours.
     if (i < 16)
     {
+        if (i == 3)
+            return 0xaa5500; // real CGA/VGA special-cases brown
         int c = (i&1 ? 0xaa0000 : 0x000000)
               | (i&2 ? 0x00aa00 : 0x000000)
               | (i&4 ? 0x0000aa : 0x000000);
