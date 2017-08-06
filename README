@@ -1,0 +1,11 @@
+This is a playground for various ways to convert between RGB and 16- and
+256-color palettes with as little error as possible, using CIEDE2000 and
+other metrics.
+
+Executables here:
+ * nearest256: compute the optimal RGB->256 table
+ * xterm256: compute the RGB->256 table using √(dist²)
+ (a bunch of other alternatives not in git that suck, like the adalyah method)
+ * rate: find avg² and worst error of a RGB->256 table
+
+ * 16x16: print CIEDE2000 distances between 16 VGA colors
